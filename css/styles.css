@@ -113,8 +113,10 @@ nav.main a:hover{border-bottom-color:var(--blue);color:var(--blue)}
 @media(max-width:600px){.ridge svg{height:36px}}
 
 /* ---------- results ---------- */
-.results{padding:88px 0 30px;background:#fff}
-.ba-grid{display:grid;grid-template-columns:repeat(2,1fr);justify-content:center;align-items:start;gap:26px}
+.results{padding:88px 0;background:#fff}
+.ba-grid{display:grid;grid-template-columns:repeat(2,1fr);justify-content:center;gap:26px}
+.ba-grid-3{grid-template-columns:repeat(3,1fr)}
+.ba-stack{display:flex;flex-direction:column;gap:26px;justify-content:space-between}
 .ba-card{border:1px solid var(--line)}
 .ba-card .meta{padding:16px 18px 18px}
 .ba-card h3{font-size:1.35rem;font-weight:700;letter-spacing:.8px}
@@ -128,6 +130,8 @@ nav.main a:hover{border-bottom-color:var(--blue);color:var(--blue)}
 .ba .after-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 @media(max-width:600px){.ba{aspect-ratio:1/1}}
 .ba-compact .ba{aspect-ratio:4/3}
+.ba-native .ba{aspect-ratio:auto;width:fit-content;max-width:100%;margin:0 auto}
+.ba-native .ba > img{width:auto;height:auto;max-width:100%}
 .ba .bar{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:0;pointer-events:none}
 .ba .bar::before{content:"";position:absolute;top:0;bottom:0;left:-1.5px;width:3px;background:#fff;box-shadow:0 0 10px rgba(0,0,0,.5)}
 .ba .grip{
