@@ -99,8 +99,9 @@ nav.main a:hover{border-bottom-color:var(--blue);color:var(--blue)}
 }
 .hero-img figcaption{
   position:absolute;left:0;bottom:0;background:var(--ink);color:var(--mist);
-  font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;font-size:.8rem;
+  font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;font-size:1rem;
   padding:12px 16px;
+  min-height:14%;display:flex;align-items:center;
 }
 @media(max-width:900px){
   .hero .wrap{grid-template-columns:1fr;padding-top:52px;padding-bottom:80px;gap:40px}
@@ -234,7 +235,20 @@ nav.main a:hover{border-bottom-color:var(--blue);color:var(--blue)}
   display:block;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.5rem;letter-spacing:.5px;color:#fff;
 }
 .about .facts span{font-size:.85rem;color:var(--mist);text-transform:uppercase;letter-spacing:1.6px;font-family:'Barlow Condensed',sans-serif}
-.video-shell{border:1px solid var(--line-dark);background:var(--ink);padding:10px}
+.about-photo{position:relative}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.about-photo::after{
+  content:"";position:absolute;inset:0;
+  border:1px solid rgba(255,255,255,.18);
+  outline:6px solid var(--blue);outline-offset:-14px;
+  pointer-events:none;
+}
+.about-photo figcaption{
+  position:absolute;left:0;bottom:0;background:var(--ink);color:var(--mist);
+  font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;font-size:1rem;
+  padding:12px 16px;
+}
+.video-shell{border:1px solid var(--line-dark);background:var(--ink);padding:10px;margin-top:30px}
 .video-shell .frame{position:relative;width:100%;aspect-ratio:560/314}
 .video-shell iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
 .video-shell figcaption{
@@ -244,6 +258,7 @@ nav.main a:hover{border-bottom-color:var(--blue);color:var(--blue)}
 @media(max-width:900px){.about .wrap{grid-template-columns:1fr;gap:40px}
   .about .facts div{min-width:100%}
   .about .facts div + div{border-left:none;border-top:1px solid var(--line-dark)}
+  .about-photo img{height:480px}
 }
 
 /* ---------- service area ---------- */
