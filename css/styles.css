@@ -1,3 +1,13 @@
+/* ---------- self-hosted fonts (latin subset, from Google Fonts) ---------- */
+@font-face{font-family:'Barlow';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/barlow-400.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/barlow-500.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:600;font-display:swap;src:url('../fonts/barlow-600.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:700;font-display:swap;src:url('../fonts/barlow-700.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Barlow Condensed';font-style:italic;font-weight:600;font-display:swap;src:url('../fonts/barlow-condensed-600-italic.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Barlow Condensed';font-style:italic;font-weight:700;font-display:swap;src:url('../fonts/barlow-condensed-700-italic.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:600;font-display:swap;src:url('../fonts/barlow-condensed-600.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:700;font-display:swap;src:url('../fonts/barlow-condensed-700.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
 :root{
   --ink:#0F151C;
   --navy:#152232;
@@ -19,6 +29,7 @@ html{scroll-behavior:smooth;scroll-padding-top:86px}
 }
 body{font-family:'Barlow',sans-serif;color:var(--ink);background:#fff;line-height:1.6}
 img{max-width:100%;display:block}
+picture{display:contents}
 a{color:inherit}
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 :focus-visible{outline:3px solid var(--bright);outline-offset:2px}
@@ -58,7 +69,30 @@ nav.main a:hover{border-bottom-color:var(--blue);color:var(--blue)}
   transition:background .15s;
 }
 .hdr-phone:hover{background:var(--bright)}
-@media(max-width:900px){nav.main{display:none}}
+.nav-toggle{display:none}
+@media(max-width:900px){
+  nav.main{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);
+    box-shadow:0 12px 24px rgba(15,21,28,.12);
+  }
+  nav.main.open{display:flex}
+  nav.main a{
+    display:flex;align-items:center;min-height:48px;padding:0 24px;
+    border-bottom:1px solid var(--line);
+  }
+  nav.main a:hover{border-bottom-color:var(--line)}
+  .nav-toggle{
+    display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;
+    width:48px;height:48px;background:none;border:1px solid var(--line);cursor:pointer;flex-shrink:0;
+  }
+  .nav-toggle span{display:block;width:22px;height:2.5px;background:var(--ink);transition:transform .15s,opacity .15s}
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+  .hdr-phone{margin-left:auto;display:inline-flex;align-items:center;min-height:48px}
+  .promo a{display:inline-block;padding:12px 6px;margin:-12px -6px}
+}
 @media(max-width:480px){.logo-link img{height:44px}.hdr-phone{padding:9px 14px;font-size:1rem}}
 
 /* ---------- hero ---------- */
@@ -71,7 +105,11 @@ nav.main a:hover{border-bottom-color:var(--blue);color:var(--blue)}
   font-size:clamp(2.9rem,6vw,4.7rem);font-weight:700;font-style:italic;letter-spacing:.5px;
 }
 .hero h1 .alt{color:var(--bright)}
-.hero .lede{color:var(--mist);margin:18px 0 30px;max-width:480px;font-size:1.06rem}
+.h1-sub{
+  font-family:'Barlow Condensed',sans-serif;font-weight:600;text-transform:uppercase;
+  letter-spacing:2.4px;font-size:1rem;color:#fff;margin-top:16px;
+}
+.hero .lede{color:var(--mist);margin:14px 0 30px;max-width:480px;font-size:1.06rem}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap}
 .btn{
   font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:1.6px;
@@ -123,7 +161,7 @@ nav.main a:hover{border-bottom-color:var(--blue);color:var(--blue)}
 .ba-card h3{font-size:1.35rem;font-weight:700;letter-spacing:.8px}
 .ba-card .meta p{color:var(--steel);font-size:.94rem;margin-top:4px}
 .ba{
-  position:relative;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none;cursor:ew-resize;
+  position:relative;overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:ew-resize;
   background:var(--ice);aspect-ratio:4/5;
 }
 .ba img{width:100%;height:100%;object-fit:cover;pointer-events:none}
@@ -132,7 +170,7 @@ nav.main a:hover{border-bottom-color:var(--blue);color:var(--blue)}
 @media(max-width:600px){.ba{aspect-ratio:1/1}}
 .ba-compact .ba{aspect-ratio:4/3}
 .ba-native .ba{aspect-ratio:auto;width:fit-content;max-width:100%;margin:0 auto}
-.ba-native .ba > img{width:auto;height:auto;max-width:100%}
+.ba-native .ba > picture > img{width:auto;height:auto;max-width:100%}
 .ba .bar{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:0;pointer-events:none}
 .ba .bar::before{content:"";position:absolute;top:0;bottom:0;left:-1.5px;width:3px;background:#fff;box-shadow:0 0 10px rgba(0,0,0,.5)}
 .ba .grip{
@@ -177,8 +215,11 @@ nav.main a:hover{border-bottom-color:var(--blue);color:var(--blue)}
 }
 .svc .tag.blue{background:var(--ink);color:#fff}
 .commercial{
-  margin-top:34px;text-align:center;color:var(--steel);font-size:.98rem;
+  margin-top:34px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);
+  padding:26px 30px;
 }
+.commercial h3{font-size:1.4rem;font-weight:700;letter-spacing:.6px;margin-bottom:12px}
+.commercial p{color:var(--steel);font-size:.98rem}
 .commercial b{color:var(--ink)}
 @media(max-width:900px){.svc-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.svc-grid{grid-template-columns:1fr}}
@@ -261,6 +302,39 @@ nav.main a:hover{border-bottom-color:var(--blue);color:var(--blue)}
   .about-photo img{height:480px}
 }
 
+/* ---------- service pages ---------- */
+.svc-hero .wrap{grid-template-columns:1fr;padding-top:56px;padding-bottom:72px}
+.svc-hero h1{font-size:clamp(2.4rem,5vw,3.6rem)}
+.svc-body{padding:72px 0;background:#fff}
+.svc-body .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+.svc-copy h2{font-size:1.9rem;font-weight:700;font-style:italic;letter-spacing:.5px;margin:30px 0 10px}
+.svc-copy h2:first-child{margin-top:0}
+.svc-copy p{color:#33424f;margin:10px 0}
+.svc-copy ul,.svc-copy ol{margin:12px 0 12px 22px;color:#33424f}
+.svc-copy li{margin:6px 0}
+.svc-photos{display:flex;flex-direction:column;gap:18px}
+.svc-photos figure{border:1px solid var(--line)}
+.svc-photos img{width:100%;height:auto}
+.svc-photos figcaption{
+  font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;
+  font-size:.78rem;color:var(--steel);padding:10px 12px;background:var(--ice);
+}
+@media(max-width:900px){.svc-body .wrap{grid-template-columns:1fr;gap:36px}}
+.svc .more{
+  display:inline-block;margin-top:14px;
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;
+  font-size:.92rem;color:var(--blue);text-decoration:none;border-bottom:2px solid var(--blue);padding-bottom:1px;
+}
+.svc .more:hover{color:var(--bright);border-bottom-color:var(--bright)}
+
+/* ---------- faq ---------- */
+.faq{padding:88px 0;background:#fff}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.qa{border:1px solid var(--line);border-top:4px solid var(--blue);padding:24px 26px}
+.qa h3{font-size:1.3rem;font-weight:700;letter-spacing:.6px}
+.qa p{color:var(--steel);font-size:.95rem;margin-top:10px}
+@media(max-width:700px){.faq-grid{grid-template-columns:1fr}}
+
 /* ---------- service area ---------- */
 .area{padding:80px 0;background:var(--ice);text-align:center}
 .area h2{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:700;font-style:italic;margin-top:6px}
@@ -290,7 +364,7 @@ form.quote{border:1px solid var(--line);padding:34px}
 }
 .field input,.field select,.field textarea{
   width:100%;border:1px solid var(--line);background:#FBFCFE;
-  font-family:'Barlow',sans-serif;font-size:14px;color:var(--ink);
+  font-family:'Barlow',sans-serif;font-size:16px;color:var(--ink);
   padding:12px 14px;border-radius:0;
 }
 .field select{padding-right:8px}

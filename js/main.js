@@ -1,3 +1,22 @@
+// ---- mobile nav toggle ----
+const navToggle = document.querySelector('.nav-toggle');
+const mainNav = document.getElementById('mainNav');
+if (navToggle && mainNav){
+  function setNav(open){
+    mainNav.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  navToggle.addEventListener('click', () => setNav(!mainNav.classList.contains('open')));
+  mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setNav(false)));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mainNav.classList.contains('open')){
+      setNav(false);
+      navToggle.focus();
+    }
+  });
+}
+
 // ---- before/after sliders ----
 document.querySelectorAll('.ba').forEach(function(ba){
   const range = ba.querySelector('input[type=range]');
@@ -63,7 +82,7 @@ function isRealEmail(value){
   return /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(value);
 }
 
-form.addEventListener('submit', async function(e){
+if (form) form.addEventListener('submit', async function(e){
   e.preventDefault();
 
   phoneField.setCustomValidity('');
