@@ -355,14 +355,8 @@ nav.main a:hover{border-bottom-color:var(--blue);color:var(--blue)}
 .fb-head .fb-mark{margin-left:auto;flex-shrink:0}
 .fb-head .fb-mark svg{display:block;width:22px;height:22px;fill:var(--mist)}
 .fb-head a:hover .fb-mark svg,.fb-head a:focus-visible .fb-mark svg{fill:#fff}
-/* Facebook's own page header is redundant with .fb-head above and cannot be
-   removed by any plugin parameter, so the iframe is pulled up and clipped.
-   The 70px offset clears a measured 68px header; iframe height must stay in
-   sync with the height= value in the plugin URL. */
-.fb-feed{position:relative;overflow:hidden;background:#fff;height:600px}
-.fb-feed iframe{
-  width:100%;height:670px;margin-top:-70px;display:block;border:none;
-}
+.fb-feed{position:relative;overflow:hidden;background:#fff;height:640px}
+.fb-feed iframe{width:100%;height:100%;display:block;border:none}
 .fb-foot{
   border-top:1px solid var(--line);padding:13px 18px;
   font-family:'Barlow Condensed',sans-serif;font-weight:600;text-transform:uppercase;
