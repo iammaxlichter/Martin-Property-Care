@@ -20,6 +20,8 @@
   --steel:#5B6B7C;
   --mist:#AEC2D4;
   --gold:#E8A33D;
+  --green:#2F7D4F;
+  --green-dk:#245E3C;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:86px}
@@ -200,6 +202,19 @@ nav.main a:hover{border-bottom-color:var(--blue);color:var(--blue)}
 
 /* ---------- services ---------- */
 .services{padding:88px 0;background:var(--ice)}
+.svc-group{margin-top:46px}
+.svc-group:first-of-type{margin-top:0}
+.svc-group-title{
+  display:flex;align-items:center;gap:16px;margin-bottom:22px;
+  font-size:1.6rem;font-weight:700;font-style:italic;letter-spacing:.5px;color:var(--ink);
+}
+.svc-group-title span{
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-style:normal;
+  background:var(--blue);color:#fff;font-size:.95rem;letter-spacing:1px;padding:4px 11px;
+}
+.svc-group-green .svc-group-title span{background:var(--green)}
+.svc-group-title::after{content:"";flex:1;height:2px;background:var(--line)}
+.svc.svc-green{border-top-color:var(--green)}
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 .svc{
   background:#fff;border:1px solid var(--line);border-top:4px solid var(--blue);
@@ -224,11 +239,30 @@ nav.main a:hover{border-bottom-color:var(--blue);color:var(--blue)}
 @media(max-width:900px){.svc-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.svc-grid{grid-template-columns:1fr}}
 
+/* ---------- landscaping showcase ---------- */
+.ls-showcase{padding:84px 0;background:#fff}
+.ls-showcase .wrap{display:grid;grid-template-columns:auto 1fr;gap:52px;align-items:center}
+.ls-video{background:var(--ink);padding:8px;justify-self:center;line-height:0}
+.ls-video iframe{width:288px;height:512px;max-width:100%;display:block;border:none}
+.ls-copy h2{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:700;font-style:italic;letter-spacing:.5px;margin-top:6px}
+.ls-copy p{color:var(--steel);margin-top:16px;max-width:560px}
+.ls-copy .btn{margin-top:24px}
+@media(max-width:800px){
+  .ls-showcase .wrap{grid-template-columns:1fr;gap:32px;justify-items:center;text-align:center}
+  .ls-copy p{margin-left:auto;margin-right:auto}
+}
+
 /* ---------- promo band ---------- */
 .band{
   background:var(--navy);color:#fff;padding:64px 0;position:relative;overflow:hidden;
 }
 .band .wrap{display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap}
+.band .season{
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-style:italic;text-transform:uppercase;
+  font-size:clamp(2.1rem,5vw,3.2rem);line-height:.92;color:#fff;
+  background:linear-gradient(100deg,var(--green) 0%,#3FA368 100%);
+  padding:10px 24px 14px;display:inline-block;transform:rotate(-1.6deg);
+}
 .band .price{
   font-family:'Barlow Condensed',sans-serif;font-weight:700;font-style:italic;
   font-size:clamp(3.4rem,8vw,5.4rem);line-height:1;color:#fff;
