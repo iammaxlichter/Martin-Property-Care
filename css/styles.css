@@ -482,3 +482,13 @@ footer .fbrand{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-st
 footer .fbrand span{color:var(--bright)}
 footer p{font-size:.88rem}
 footer a{color:var(--mist)}
+
+/* ---------- snow removal & interior cleaning groups ---------- */
+.svc-group-snow .svc-group-title span{background:#4A6B8A}
+.svc.svc-snow{border-top-color:#4A6B8A}
+.svc-group-clean .svc-group-title span{background:#1F8A8A}
+.svc.svc-clean{border-top-color:#1F8A8A}
+.svc-note{margin-top:18px;color:#33424f;font-size:.95rem}
+.svc-note b{color:var(--ink)}
+.band .season.season-snow{background:linear-gradient(100deg,#4A6B8A 0%,var(--bright) 100%)}
+.svc-body .wrap.one-photo .svc-photos figure{max-width:420px}
